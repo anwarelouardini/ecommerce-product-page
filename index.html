@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="overlay"></div>
+    <div class="header-content container">
+      <div class="left-content">
+        <img id="menuIcon" class="menu-icn" src="images/icon-menu.svg">
+        <img class="logo" src="images/logo.svg" alt="">
+        <nav>
+          <h2 class="links-txt"><a href="#">Collections</a></h2>
+          <h2 class="links-txt"><a href="#">Men</a></h2>
+          <h2 class="links-txt"><a href="#">Women</a></h2>
+          <h2 class="links-txt"><a href="#">About</a></h2>
+          <h2 class="links-txt"><a href="#">Contact</a></h2>
+        </nav>
+      </div>
+      <div class="right-content">
+        <div class="cart-items_container">
+          <img id="card" class="cart" src="images/icon-cart.svg" alt="">
+          <div id="cartItems" class="cart-items">0</div>
+        </div>
+        <img class="profile" src="images/image-avatar.png" alt="">
+        <div id="cartMenu" class="cart-container">
+          <h3>Cart</h3>
+          <hr>
+          <div id="productContainer" class="product-container">
+            <img class="cart-img" src="images/image-product-1-thumbnail.jpg" alt="">
+            <div class="product-info">
+              <p class="info-txt">Fall limited Edition Sneakers $125.00 x <span id="productAmount">3</span> <span id="total">$375.00</span></p>
+            </div>
+            <button id="deleteCart" class="delete-items">
+              <img src="images/icon-delete.svg" alt="">
+            </button>
+          </div>
+          <button id="checkoutBtn" class="add-to_cart">Checkout</button>
+          <div id="emptyMssg" class="empty-mss_container">
+            <h3>Your cart is empty</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="sideBar" class="menu-toggle">
+      <div class="side-bar">
+        <div class="content-toggle">
+          <button id="close" class="close-toggle">
+            <img src="images/icon-close.svg" alt="">
+          </button>
+        </div>
+        <div class="links">
+          <h2 class="links-txt"><a href="#">Collections</a></h2>
+          <h2 class="links-txt"><a href="#">Men</a></h2>
+          <h2 class="links-txt"><a href="#">Women</a></h2>
+          <h2 class="links-txt"><a href="#">About</a></h2>
+          <h2 class="links-txt"><a href="#">Contact</a></h2>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="col container-large_screen">
+    <section class="hero">
+      <div class="hero-img">
+        <div id="slides" class="slides">
+          <img class="hidden" src="images/image-product-1.jpg" alt="">
+          <img class="hidden" src="images/image-product-2.jpg" alt="">
+          <img class="hidden" src="images/image-product-3.jpg" alt="">
+          <img class="hidden" src="images/image-product-4.jpg" alt="">
+        </div>
+        <button id="prev" class="previous">
+          <img src="images/icon-previous.svg" alt="">
+        </button>
+        <button id="next" class="next">
+          <img src="images/icon-next.svg" alt="">
+        </button>
+        <div id="thumbnails" class="her-img_thumbnails container hide">
+          <div>
+            <img class="thumb active" onclick="thumbStyle(0); showSlide(0);" src="images/image-product-1-thumbnail.jpg" alt="">
+          </div>
+          <div>
+            <img class="thumb" onclick="thumbStyle(1); showSlide(1);" src="images/image-product-2-thumbnail.jpg" alt="">
+          </div>
+          <div>
+            <img class="thumb" onclick="thumbStyle(2); showSlide(2);" src="images/image-product-3-thumbnail.jpg" alt="">
+          </div>
+          <div>
+            <img class="thumb" onclick="thumbStyle(3); showSlide(3);" src="images/image-product-4-thumbnail.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about container">
+      <h3 class="second-title">SNEAKER COMPANY</h3>
+      <h2 class="about-main_title">Fall Limited Edition Sneakers</h2>
+      <p class="about-desc">These low-profile sneaker are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll wihstand everything the weather can offer.</p>
+      <div class="price-container">
+        <div class="left-content">
+          <h2 class="price">$125.00</h1>
+          <p class="reduction">50%</p>
+        </div>
+        <div class="right-content">
+          <h3 class="old-price">$250.00</h3>
+        </div>
+      </div>
+      <div class="col_2">
+        <div class="amount-container">
+          <h4 id="totalAmount">0</h4>
+          <button id="addAmount" class="add">
+            <img src="images/icon-plus.svg" alt="">
+          </button>
+          <button id="decreaseAmount" class="decrease">
+            <img src="images/icon-minus.svg" alt="">
+          </button>
+        </div>
+        <button id="addToCart" class="add-to_cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20">
+            <path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#000000" fill-rule="nonzero"/>
+          </svg>
+          <p class="button-content">Add to card</p>
+        </button>
+      </div>
+    </section>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">EL OUARDINI Anwar</a>.
+  </div>
+</body>
+<script src="index.js"></script>
+</html>
